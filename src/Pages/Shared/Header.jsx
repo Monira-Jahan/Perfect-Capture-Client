@@ -2,14 +2,14 @@ import { Link } from "react-router-dom";
 const Header = () => {
 
     const navOptions = <>
-        <li><Link to="/" className="font-bold"> Home</Link></li>
-        <li><Link className="font-bold">Instructors</Link></li>
-        <li><Link className="font-bold"> Classes</Link></li>
-        <li><Link className="font-bold"> Dashboard</Link></li>
+        <li><Link to="/" className="font-bold text-lg"> Home</Link></li>
+        <li><Link className="font-bold text-lg">Instructors</Link></li>
+        <li><Link className="font-bold text-lg"> Classes</Link></li>
+        <li><Link className="font-bold text-lg"> Dashboard</Link></li>
         
     </>
     return (
-        <div className="navbar fixed z-10 bg-opacity-10 bg-black text-white max-w-screen-xl">
+        <div className="navbar fixed z-10 bg-opacity-10 bg-white text-white max-w-screen-xl">
             <div className="navbar-start">
                 <div className="dropdown">
                     <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -20,7 +20,7 @@ const Header = () => {
                     </ul>
                 </div>
                 <div>
-                    <img className="-pt-2" src="https://i.ibb.co/qJKw5qQ/Untitled-3.png" alt=""/>
+                    <img className="-pt-2" src="https://i.ibb.co/9Ykncg8/logo.png" alt=""/>
             
                 </div>
                 </div>
