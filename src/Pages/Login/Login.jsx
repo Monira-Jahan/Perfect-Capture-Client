@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Swal from 'sweetalert2'
 //import img2 from '../../assets/images/Animated Shape.svg'
 
 const Login = () => {
@@ -15,6 +16,22 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         console.log(email, password);
+
+        logIn(email, password)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                Swal.fire({
+                    title: 'Login Successful.',
+                    showClass: {
+                        popup: 'animate__animated animate__fadeInDown'
+                    },
+                    hideClass: {
+                        popup: 'animate__animated animate__fadeOutUp'
+                    }
+                });
+                
+            })
         }
     return (
         <>
@@ -22,11 +39,14 @@ const Login = () => {
                 <title>Perfect Capture | Login</title>
             </Helmet>
         <div className="hero min-h-screen bg-base-200 bg-[url('https://i.ibb.co/wJrQk6x/bg-1.jpg')]">
+        
             <div className="hero-content flex-col md:flex-row-reverse   rounded-xl shadow-2xl bg-gray-600 bg-opacity-70 w-[1100px] mx-12 py-8 mt-14">
-                <div className="text-center md:w-1/2 md:text-left">
+                
+                <div className=" ">
+                <h1 className="text-3xl pb-16 text-white text-center font-bold">Login Now</h1>
                     <img className="pl-16" src={img1} alt=""/>
                 </div>
-                <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100">
+                <div className="card md:w-1/2 max-w-sm shadow-2xl bg-base-100 mt-8 mb-4">
                     <form onSubmit={handleLogin} className="card-body ">
                         <div className="form-control">
                             <label className="label">
