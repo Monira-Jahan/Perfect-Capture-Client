@@ -1,13 +1,39 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../../Provider/AuthProvider";
 const Header = () => {
-
+    const { user, logOut } = useContext(AuthContext);
+    const handleLogout = () => {
+        logOut()
+            .then(() => { })
+            .catch(error => console.log(error));
+    }
     const navOptions = <>
         <li><Link to="/" className="hover:link-accent font-bold text-lg"> Home</Link></li>
         <li><Link className="hover:link-accent font-bold text-lg">Instructors</Link></li>
         <li><Link className="hover:link-accent font-bold text-lg"> Classes</Link></li>
-        <li><Link className="hover:link-accent font-bold text-lg"> Dashboard</Link></li>
         
-        <li><Link to="/login" className="hover:link-accent font-bold text-lg">Login</Link></li>
+        {
+            user ? <>
+                {/* <div className="py-2 pr-2">
+                    <span>{user.displayName}</span>
+                </div> */}
+                <li><Link className="hover:link-accent font-bold text-lg"> Dashboard</Link></li>
+                <div className="mb-3">
+                    <img className='avatar w-12 h-12 border border-white rounded-full  hover:{user.displayName}' src={user.photoURL} alt="" />
+                </div>
+
+                <button onClick={handleLogout} className="font-bold ml-3  btn btn-sky-300">Logout</button>
+
+            </> : <>
+            
+        
+            <li><Link to="/login" className="hover:link-accent font-bold text-lg">Login</Link></li>
+
+            </>
+        }
+        
+        
         
     </>
     return (
