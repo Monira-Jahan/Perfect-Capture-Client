@@ -1,9 +1,14 @@
 import { Helmet } from 'react-helmet-async';
 import img1 from '../../assets/images/auth.png';
 import { Link } from 'react-router-dom';
+import { FaGoogle } from 'react-icons/fa';
+import { useContext } from 'react';
+import { AuthContext } from '../../Provider/AuthProvider';
 //import img2 from '../../assets/images/Animated Shape.svg'
 
 const Login = () => {
+    const { logIn } = useContext(AuthContext);
+
         const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -42,6 +47,9 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <input  className="btn bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold " type="submit" value="Login" />
                         </div>
+                        <button className="btn btn-outline btn-primary  mx-8 px-4 mt-4"><FaGoogle className="mr-3"/>Login With Google</button>
+ 
+ 
                     </form>
                     <p className="pl-4 pb-8 text-center font-semibold"><small>New to Perfect Capture? <Link className='link-primary' to="/signup">Create an account</Link> </small></p>
                 </div>
