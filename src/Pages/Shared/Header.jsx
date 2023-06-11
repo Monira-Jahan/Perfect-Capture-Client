@@ -10,7 +10,7 @@ const Header = () => {
     }
     const navOptions = <>
         <li><Link to="/" className="hover:link-accent font-bold text-lg"> Home</Link></li>
-        <li><Link className="hover:link-accent font-bold text-lg">Instructors</Link></li>
+        <li><Link to="/instructors" className="hover:link-accent font-bold text-lg">Instructors</Link></li>
         <li><Link className="hover:link-accent font-bold text-lg"> Classes</Link></li>
         
         {
