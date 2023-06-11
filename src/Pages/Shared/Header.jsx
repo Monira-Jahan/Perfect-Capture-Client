@@ -1,8 +1,12 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
+
+
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
+    
+    
     const handleLogout = () => {
         logOut()
             .then(() => { })
@@ -32,9 +36,7 @@ const Header = () => {
 
             </>
         }
-        
-        
-        
+       
     </>
     return (
         <div className="navbar fixed z-10 bg-opacity-60 bg-black text-white max-w-screen-xl">
