@@ -3,6 +3,7 @@ import slider2 from '../../../assets/images/wild.jpg';
 import slider3 from '../../../assets/banner4.jpg';
 import slider4 from '../../../assets/banner7 (1).jpg';
 import slider5 from '../../../assets/banner7 (2).jpg';
+import { Slide } from 'react-awesome-reveal';
 
 const Banner = () => {
     return (
@@ -14,9 +15,13 @@ const Banner = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
+                                <Slide>
                                 <h1 className="mb-5 text-3xl font-bold">Introduction To Photography</h1>
+                                
                                 <p className="mb-5 text-base">Each course has been carefully crafted by a team of professional photographers to help beginners and amateurs gain higher-level photography skills and develop unshakable camera confidence, quickly.</p>
+                                
                                 <button className="btn btn-primary">Learn More</button>
+                                </Slide>
                             </div>
                         </div>
                     </div>
@@ -27,9 +32,11 @@ const Banner = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
+                                <Slide>
                                 <h1 className="mb-5 text-3xl font-bold">Begineer Photography Course</h1>
                                 <p className="mb-5 text-base">By introducing brand new, exclusive, interactive and intuitive methods of learning, your camera settings will never be a mystery again! With so many detailed examples, and information regarding shutter speed, aperture and exposure, you will want to take your camera with you everywhere you go.</p>
                                 <button className="btn btn-primary">Learn More</button>
+                                </Slide>
                             </div>
                         </div>
                     </div>
@@ -40,9 +47,12 @@ const Banner = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
+                                <Slide>
                                 <h1 className="mb-5 text-3xl font-bold">Street Photography Course</h1>
+                                
                                 <p className="mb-5 text-base">By introducing brand new, exclusive, interactive and intuitive methods of learning, your camera settings will never be a mystery again! With so many detailed examples, and information regarding shutter speed, aperture and exposure, you will want to take your camera with you everywhere you go.</p>
                                 <button className="btn btn-primary">Learn More</button>
+                                </Slide>
                             </div>
                         </div>
                     </div>
@@ -53,9 +63,11 @@ const Banner = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
+                                <Slide>
                                 <h1 className="mb-5 text-3xl font-bold">Wild Life Photography Course</h1>
                                 <p className="mb-5 text-base">Discover the secrets to incredible wildlife photography. From insects to pets, to birds, to exotic animals and more. It’s all covered in this wildlife photography course.</p>
                                 <button className="btn btn-primary">Learn More</button>
+                                </Slide>
                             </div>
                         </div>
                     </div>
@@ -67,9 +79,11 @@ const Banner = () => {
                         <div className="hero-overlay bg-opacity-60"></div>
                         <div className="hero-content text-center text-neutral-content">
                             <div className="max-w-md">
+                                <Slide>
                                 <h1 className="mb-5 text-3xl font-bold">Landscape Photography Course</h1>
                                 <p className="mb-5 text-base">This course is simple to follow and the classes cover everything you need to know to plan, shoot and edit breathtaking landscape photos from start to finish – no matter where you are or what’s in front of you.</p>
                                 <button className="btn btn-primary">Learn More</button>
+                                </Slide>
                             </div>
                         </div>
                     </div>

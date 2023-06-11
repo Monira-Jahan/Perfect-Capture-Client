@@ -1,6 +1,6 @@
 import { Helmet } from 'react-helmet-async';
 import img1 from '../../assets/images/auth.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { useContext } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
@@ -9,6 +9,9 @@ import Swal from 'sweetalert2'
 
 const Login = () => {
     const { logIn } = useContext(AuthContext);
+    const navigate=useNavigate();
+    const location=useLocation();
+    const from= location.state?.from?.pathname || "/";
 
         const handleLogin = event => {
         event.preventDefault();
@@ -30,7 +33,7 @@ const Login = () => {
                         popup: 'animate__animated animate__fadeOutUp'
                     }
                 });
-                
+                navigate(from, { replace: true });  
             })
         }
     return (
