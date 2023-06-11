@@ -11,10 +11,10 @@ const InstructorsSection = () => {
         
             <div className="hero-overlay max-w-screen-lg max-h-72 bg-black bg-opacity-60 rounded-xl mt-20"></div>
             <div className="hero-content text-center text-neutral-content">
-                <div className="max-w-md text-white">
+                <div className="max-w-md text-white ">
                     <Slide>
-                    <h1 className="mb-5 text-3xl font-bold uppercase">Here Is Our Instructors</h1>
-                    <p className="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Necessitatibus, libero accusamus laborum deserunt ratione dolor officiis praesentium! Deserunt magni aperiam dolor eius dolore at, nihil iusto ducimus incidunt quibusdam nemo.</p>
+                    <h1 className="mb-5 mt-16 text-3xl font-bold uppercase">Here Is Our Instructors</h1>
+                    <p className="mb-5">It’s important to know that the people behind your training know their stuff, so meet your Perfect Capture tutors and course instructors.This unique blend of experience, skill, and technical know-how, combined with a wide mix of engaging personalities, is precisely why our students get such incredible results so quickly!</p>
                     </Slide>
                 </div>
             </div>
