@@ -1,11 +1,28 @@
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Provider/AuthProvider";
-
+import sun from '../../assets/images/sun.svg';
+import moon from '../../assets/images/moon.svg';
 
 const Header = () => {
     const { user, logOut } = useContext(AuthContext);
-    
+    const [theme, setTheme] = useState(
+        localStorage.getItem("theme") ? localStorage.getItem("theme") : "light"
+      );
+       // update state on toggle
+  const handleToggle = (e) => {
+    if (e.target.checked) {
+      setTheme("dark");
+    } else {
+      setTheme("light");
+    }
+  };
+  useEffect(() => {
+    localStorage.setItem("theme", theme);
+    const localTheme = localStorage.getItem("theme");
+    // add custom data-theme attribute to html tag required to update theme using DaisyUI
+    document.querySelector("html").setAttribute("data-theme", localTheme);
+  }, [theme]);
     
     const handleLogout = () => {
         logOut()
@@ -36,7 +53,15 @@ const Header = () => {
 
             </>
         }
-       
+       <button className="btn btn-square ml-8 bg-white">
+          <label className="swap swap-rotate w-12 h-12">
+            <input type="checkbox"  onChange={handleToggle} checked={theme === "light" ? false : true}/>
+            {/* light theme sun image */}
+            <img src={sun} alt="light" className="w-8 h-8 swap-on" />
+            {/* dark theme moon image */}
+            <img src={moon} alt="dark" className="w-8 h-8 swap-off" />
+          </label>
+        </button>
     </>
     return (
         <div className="navbar fixed z-10 bg-opacity-60 bg-black text-white max-w-screen-xl">
