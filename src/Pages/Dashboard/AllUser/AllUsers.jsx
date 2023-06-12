@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
-import { FaTrashAlt, FaUserShield } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
+import Swal from "sweetalert2";
 
 
 const AllUsers = () => {
@@ -12,11 +13,45 @@ const AllUsers = () => {
     const handleDelete=()=>{
 
     }
-    const handleMakeAdmin=()=>{
+    const handleMakeAdmin=user=>{
+       fetch(`http://localhost:5000/users/admin/${user._id}`,{
+        method: 'PATCH'
+       })
+       .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            if(data.modifiedCount){
+                refetch();
+                Swal.fire({
+                    position: 'top-end',
+                    icon: 'success',
+                    title: `${user.name} is an Admin Now!`,
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+            }
+        })
 
     }
-    const handleMakeInstructor=()=>{
-
+    const handleMakeInstructor=user=>{
+        fetch(`http://localhost:5000/users/instructor/${user._id}`,{
+            method: 'PATCH'
+           })
+           .then(res => res.json())
+            .then(data => {
+                console.log(data)
+                if(data.modifiedCount){
+                    refetch();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: `${user.name} is an Instructor Now!`,
+                        showConfirmButton: false,
+                        timer: 1500
+                      })
+                }
+            })
+    
     }
     return (
         <div>
@@ -44,8 +79,8 @@ const AllUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{ user.role }</td>
-                                   <td className="flex flex-col"> <button onClick={() => handleMakeAdmin(user._id)} className="btn bg-sky-400   text-white mb-2">Make Admin</button> 
-                                   <button onClick={() => handleMakeInstructor(user._id)} className="btn bg-slate-500   text-white">Make Instructor</button>
+                                   <td className="flex flex-col"> <button onClick={() => handleMakeAdmin(user)} className="btn bg-sky-400   text-white mb-2">Make Admin</button> 
+                                   <button onClick={() => handleMakeInstructor(user)} className="btn bg-slate-500   text-white">Make Instructor</button>
                                     </td>
                                 <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
                             </tr>)
