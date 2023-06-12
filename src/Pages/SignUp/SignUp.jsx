@@ -23,7 +23,7 @@ const SignUp = () => {
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.photo)
                     .then(() => {
-                        const storeUser = { name: data.name, email: data.email, photo: data.photo }
+                        const storeUser = { name: data.name, email: data.email, photo: data.photo,role:data.role }
                         fetch('http://localhost:5000/users', {
                             method: 'POST',
                             headers: {
@@ -56,7 +56,7 @@ const SignUp = () => {
         .then(result=>{
             const loggedInUser = result.user;
             console.log(loggedInUser);
-            const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email, photo: loggedInUser.photo }
+            const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email,role: "Student", photo: loggedInUser.photo }
             fetch('http://localhost:5000/users', {
                 method: 'POST',
                 headers: {
@@ -107,6 +107,13 @@ const SignUp = () => {
                                 </label>
                                 <input type="email" {...register("email", { required: true })} name="email" placeholder="email" className="input input-bordered" />
                                 {errors.email && <span className="text-red-600">Email is required</span>}
+                            </div>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">User Role</span>
+                                </label>
+                                <input type="text" {...register("role", { required: true })} name="role"  className="input input-bordered" />
+                                {errors.role && <span className="text-red-600">User Role is required</span>}
                             </div>
                             <div className="form-control">
                                 <label className="label">
