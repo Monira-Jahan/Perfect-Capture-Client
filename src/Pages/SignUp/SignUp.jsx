@@ -1,16 +1,20 @@
 import { Helmet } from "react-helmet-async";
 import img1 from '../../assets/images/auth.png';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
 import { useForm } from "react-hook-form";
 import Swal from "sweetalert2";
+import { FaGoogle } from "react-icons/fa";
 
 
 const SignUp = () => {
     const { register, handleSubmit, reset, formState: { errors } } = useForm();
-    const { createUser, updateUserProfile } = useContext(AuthContext);
-
+    const { createUser, updateUserProfile,logInWithGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
+    
     const onSubmit = data => {
         console.log(data);
         createUser(data.email, data.password)
@@ -19,19 +23,54 @@ const SignUp = () => {
                 console.log(loggedUser);
                 updateUserProfile(data.name, data.photo)
                     .then(() => {
-                        console.log('user profile info updated')
-                        reset();
-                        Swal.fire({
-                            position: 'top-end',
-                            icon: 'success',
-                            title: 'User created successfully.',
-                            showConfirmButton: false,
-                            timer: 1500
-                        });
-                        // navigate('/')
+                        const storeUser = { name: data.name, email: data.email, photo: data.photo }
+                        fetch('http://localhost:5000/users', {
+                            method: 'POST',
+                            headers: {
+                                'content-type': 'application/json'
+                            },
+                            body: JSON.stringify(storeUser)
+                        })
+                        .then(res => res.json())
+                        .then(data=>{
+                            if (data.insertedId) {
+                                reset();
+                                Swal.fire({
+                                    position: 'top-end',
+                                    icon: 'success',
+                                    title: 'User created successfully.',
+                                    showConfirmButton: false,
+                                    timer: 1500
+                                });
+                                navigate('/');
+                            }
+                        })
+                        
+                        
                     })
+                    .catch(error => console.log(error))
             })
     }
+    const handleGoogleLogIn=()=>{
+        logInWithGoogle()
+        .then(result=>{
+            const loggedInUser = result.user;
+            console.log(loggedInUser);
+            const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email, photo: loggedInUser.photo }
+            fetch('http://localhost:5000/users', {
+                method: 'POST',
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(saveUser)
+            })
+                .then(res => res.json())
+                .then(() => {
+                    navigate(from, { replace: true });
+                })
+        })
+    }
+
     return (
         <>
             <Helmet>
@@ -105,6 +144,8 @@ const SignUp = () => {
                             <div className="form-control mt-6">
                                 <input className="btn bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold " type="submit" value="Login" />
                             </div>
+                            <button onClick={handleGoogleLogIn}className="btn btn-outline btn-primary  mx-8 px-4 mt-4"><FaGoogle className="mr-3"/>Login With Google</button>
+ 
                         </form>
                         <p className="pl-4 pb-3 font-bold text-center text-primary"><small>Already Registered? Go to <Link to="/login">Login</Link> </small></p>
                         <p className="pl-2 pb-3 font-normal text-center text-black"></p>

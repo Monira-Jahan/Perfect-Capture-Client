@@ -33,18 +33,19 @@ const Header = () => {
         <li><Link to="/" className="hover:link-accent font-bold text-lg"> Home</Link></li>
         <li><Link to="/instructors" className="hover:link-accent font-bold text-lg">Instructors</Link></li>
         <li><Link className="hover:link-accent font-bold text-lg"> Classes</Link></li>
+        <li><Link to="/dashboard" className="hover:link-accent font-bold text-lg"> Dashboard</Link></li>
         
         {
             user ? <>
                 {/* <div className="py-2 pr-2">
                     <span>{user.displayName}</span>
                 </div> */}
-                <li><Link className="hover:link-accent font-bold text-lg"> Dashboard</Link></li>
+                
                 <div className="mb-3">
                     <img className='avatar w-12 h-12 border border-white rounded-full  hover:{user.displayName}' src={user.photoURL} alt="" />
                 </div>
 
-                <button onClick={handleLogout} className="font-bold ml-3  btn btn-sky-300">Logout</button>
+                <button onClick={handleLogout} className="font-bold ml-3 btn btn-sky-300">Logout</button>
 
             </> : <>
             
@@ -53,7 +54,7 @@ const Header = () => {
 
             </>
         }
-       <button className="btn btn-square ml-8 bg-white">
+      <div> <button className="btn btn-square ml-4  bg-white">
           <label className="swap swap-rotate w-12 h-12">
             <input type="checkbox"  onChange={handleToggle} checked={theme === "light" ? false : true}/>
             {/* light theme sun image */}
@@ -62,6 +63,7 @@ const Header = () => {
             <img src={moon} alt="dark" className="w-8 h-8 swap-off" />
           </label>
         </button>
+        </div>
     </>
     return (
         <div className="navbar fixed z-10 bg-opacity-60 bg-black text-white max-w-screen-xl">
@@ -79,7 +81,7 @@ const Header = () => {
             
                 </div>
                 </div>
-            <div className="navbar-end mr-24 hidden lg:flex">
+            <div className="navbar-center mr-24 hidden lg:flex">
                 <ul className="menu menu-horizontal px-1 ">
                     {navOptions}
                 </ul>

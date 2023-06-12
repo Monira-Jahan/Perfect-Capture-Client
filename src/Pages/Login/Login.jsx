@@ -8,7 +8,7 @@ import Swal from 'sweetalert2'
 //import img2 from '../../assets/images/Animated Shape.svg'
 
 const Login = () => {
-    const { logIn } = useContext(AuthContext);
+    const { logIn,logInWithGoogle } = useContext(AuthContext);
     const navigate=useNavigate();
     const location=useLocation();
     const from= location.state?.from?.pathname || "/";
@@ -36,6 +36,26 @@ const Login = () => {
                 navigate(from, { replace: true });  
             })
         }
+        const handleGoogleLogIn=()=>{
+            logInWithGoogle()
+            .then(result=>{
+                const loggedInUser = result.user;
+                console.log(loggedInUser);
+                const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email, photo: loggedInUser.photo }
+                fetch('http://localhost:5000/users', {
+                    method: 'POST',
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(saveUser)
+                })
+                    .then(res => res.json())
+                    .then(() => {
+                        navigate(from, { replace: true });
+                    })
+            })
+        }
+    
     return (
         <>
         <Helmet>
@@ -70,7 +90,7 @@ const Login = () => {
                         <div className="form-control mt-6">
                             <input  className="btn bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold " type="submit" value="Login" />
                         </div>
-                        <button className="btn btn-outline btn-primary  mx-8 px-4 mt-4"><FaGoogle className="mr-3"/>Login With Google</button>
+                        <button onClick={handleGoogleLogIn}className="btn btn-outline btn-primary  mx-8 px-4 mt-4"><FaGoogle className="mr-3"/>Login With Google</button>
  
  
                     </form>

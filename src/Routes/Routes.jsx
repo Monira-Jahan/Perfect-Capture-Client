@@ -4,6 +4,8 @@ import Home from "../Pages/Home/Home/Home";
 import Login from "../Pages/Login/Login";
 import SignUp from "../Pages/SignUp/SignUp";
 import InstructorsSection from "../Pages/Instructors/InstructorsSection";
+import Dashboard from "../Layout/Dashboard";
+import PrivateRoute from "./PrivateRoute";
 
   export const router = createBrowserRouter([
     {
@@ -28,5 +30,16 @@ import InstructorsSection from "../Pages/Instructors/InstructorsSection";
         },
       ]
     },
+    {
+      path:'dashboard',
+      element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
+      children:[
+        {
+          
+
+        }
+      ]
+    }
+
   ]);
   
