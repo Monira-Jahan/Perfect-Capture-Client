@@ -1,7 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { useState } from "react";
+
 import { Helmet } from "react-helmet-async";
-import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
 
 
@@ -11,11 +10,8 @@ const AllUsers = () => {
         const res=await fetch('http://localhost:5000/users')
         return res.json();
     });
-    const [isAdminButtonDisabled, setIsAdminButtonDisabled] = useState(false);
     
-    const handleDelete=()=>{
-
-    }
+   
     const handleMakeAdmin=user=>{
        fetch(`http://localhost:5000/users/admin/${user._id}`,{
         method: 'PATCH'
@@ -23,7 +19,7 @@ const AllUsers = () => {
        .then(res => res.json())
         .then(data => {
             console.log(data)
-            setIsAdminButtonDisabled(true);
+            
             if(data.modifiedCount){
                 refetch();
                 Swal.fire({
@@ -35,7 +31,7 @@ const AllUsers = () => {
                   })
             }
         })
-        setIsAdminButtonDisabled(false);
+        
 
     }
     const handleMakeInstructor=user=>{
@@ -87,10 +83,10 @@ const AllUsers = () => {
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
                                 <td>{ user.role }</td>
-                                   <td className="flex flex-col"> <button onClick={() => handleMakeAdmin(user)} disabled={isAdminButtonDisabled} className="btn bg-sky-400   text-white mb-2">Make Admin</button> 
+                                   <td className="flex flex-col"> <button onClick={() => handleMakeAdmin(user)} className="btn bg-sky-400   text-white mb-2">Make Admin</button> 
                                    <button onClick={() => handleMakeInstructor(user)} className="btn bg-slate-500   text-white">Make Instructor</button>
                                     </td>
-                                <td><button onClick={() => handleDelete(user)} className="btn btn-ghost bg-red-600  text-white"><FaTrashAlt></FaTrashAlt></button></td>
+                                
                             </tr>)
                         }
                         
