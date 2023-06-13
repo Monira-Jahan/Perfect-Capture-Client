@@ -1,12 +1,14 @@
-import { FaUsers, FaCamera, FaChalkboardTeacher, FaHome,  FaWallet, FaUserAlt } from "react-icons/fa";
+import { FaUsers, FaCamera, FaChalkboardTeacher, FaHome, FaShoppingBasket, FaWallet, FaUserAlt } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 import useAdmin from "../hooks/useAdmin";
+import useInstructor from "../hooks/useInstructor";
 
 
 const Dashboard = () => {
 
     //  TODO:load data from the server to have dynamic isAdmin based on Data
     const [isAdmin] = useAdmin();
+    const [isInstructor]=useInstructor();
  
     return (
         <div className="drawer lg:drawer-open mt-10">
@@ -28,8 +30,15 @@ const Dashboard = () => {
                             <li className="font-semibold text-lg pt-8"><NavLink to="/dashboard/history"> <FaCamera /> Manage Classes</NavLink></li>
                             <li className="font-semibold text-lg"><NavLink to="/dashboard/manageusers"> <FaUsers />Manage Users</NavLink></li>
 
-                        </> :  <>
-                                <li className="font-bold text-lg pt-4"><NavLink> <FaHome /> User Home</NavLink></li>
+                        </> : isInstructor ?
+                            <>
+                                <li className="font-bold text-lg pt-4"><NavLink> <FaHome /> Instructor Home</NavLink></li>
+                                <li className="font-semibold text-lg pt-8"><NavLink to="/dashboard/history"> <FaWallet /> Add a Class</NavLink></li>
+                                <li className="font-semibold text-lg"><NavLink to="/dashboard/mycart"> <FaShoppingBasket /> My Classes</NavLink></li>
+                                <li className="font-semibold text-lg"><NavLink to="/dashboard/mycart"> <FaShoppingBasket /> Total Enrolled Classes</NavLink></li>
+
+                            </> : <>
+                                <li className="font-bold text-lg pt-4"><NavLink> <FaHome /> Student Home</NavLink></li>
                                 <li className="font-semibold text-lg pt-8"><NavLink to="/dashboard/history"> <FaWallet />Add a Class</NavLink></li>
                                 <li className="font-semibold text-lg pt-8"><NavLink to="/dashboard/history"> <FaWallet />My Classes</NavLink></li>
                                 <li className="font-semibold text-lg pt-8"><NavLink to="/dashboard/history"> <FaWallet /> Payment History</NavLink></li>

@@ -150,7 +150,7 @@ const SignUp = () => {
                             </div>
 
                             <div className="form-control mt-6">
-                                <input className="btn bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold " type="submit" value="Login" />
+                                <input className="btn bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold " type="submit" value="Sign up" />
                             </div>
                             <button onClick={handleGoogleLogIn}className="btn btn-outline btn-primary  mx-8 px-4 mt-4"><FaGoogle className="mr-3"/>Login With Google</button>
  

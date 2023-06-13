@@ -8,7 +8,7 @@ const PopularInstructor = () => {
 
     const[Instructor,setInstructor]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/users')
+        fetch('http://localhost:5000/instructors')
         .then(res=>res.json())
         .then(data=>{
             const popularInstructor=data.filter(instructor=>instructor.role==='Instructor');

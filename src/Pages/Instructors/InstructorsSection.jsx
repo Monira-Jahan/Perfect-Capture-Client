@@ -1,11 +1,17 @@
 import { Slide } from "react-awesome-reveal";
-import useInstructor from "../../hooks/useInstructor";
 import InstructorCard from "../Shared/InstructorCard/InstructorCard";
-
+import { useEffect, useState } from "react";
 
 const InstructorsSection = () => {
-    const [instructors] = useInstructor();
-    const Instructor = instructors.filter(instructor => instructor.role === 'Instructor');
+    const[Instructor,setInstructor]=useState([])
+    useEffect(()=>{
+        fetch('http://localhost:5000/instructors')
+        .then(res=>res.json())
+        .then(data=>{
+            const AllInstructors=data.filter(instructor=>instructor.role==='Instructor');
+            setInstructor(AllInstructors)
+        })
+    },[])
     return (
         <div>
             <div className="hero  bg-gradient-to-r from-sky-500 to-violet-400 mb-8 h-[500px]" >

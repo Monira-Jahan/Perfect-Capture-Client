@@ -1,5 +1,4 @@
 
-
 const PopularCard = ({instructor}) => {
     const {name,photo,email}=instructor;
     return (
