@@ -4,7 +4,7 @@ import { FaAddressCard, FaPhone, FaEnvelope } from 'react-icons/fa';
 
 const Footer = () => {
     return (
-        <footer>
+        <footer className="mt-6">
             <div className="footer p-10  bg-neutral text-neutral-content">
                 <div>
                     <img className="w-18 h-16 pl-8" src="https://i.ibb.co/qJKw5qQ/Untitled-3.png" alt="" />

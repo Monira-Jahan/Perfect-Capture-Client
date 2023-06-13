@@ -41,7 +41,7 @@ const Reviews = () => {
                     reviews.map(review => <SwiperSlide
                         key={review._id}
                     >
-                        <div className="card w-96 h-96 px-8 py-6 bg-sky-500 shadow-xl flex flex-col items-center m-24">
+                        <div className="card w-96 h-96 px-8 py-6  bg-sky-400 shadow-xl flex flex-col items-center mx-24 my-16 transform transition duration-500 hover:scale-110">
                             <div className="avatar">
                                 <div className="w-24 rounded-full">
                                     <img src={review.image} />
