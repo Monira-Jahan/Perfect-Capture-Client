@@ -1,4 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import { Helmet } from "react-helmet-async";
 import { FaTrashAlt } from "react-icons/fa";
 import Swal from "sweetalert2";
@@ -10,6 +11,7 @@ const AllUsers = () => {
         const res=await fetch('http://localhost:5000/users')
         return res.json();
     });
+    const [isButtonDisabled, setIsButtonDisabled] = useState(false);
     const handleDelete=()=>{
 
     }

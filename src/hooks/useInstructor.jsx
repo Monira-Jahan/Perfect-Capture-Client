@@ -5,7 +5,7 @@ const useInstructor = () => {
     const[instructors,setInstructor]=useState([]);
     const[loader,setLoader]=useState(true);
     useEffect(()=>{
-        fetch('http://localhost:5000/instructors')
+        fetch('http://localhost:5000/users')
         .then(res=>res.json())
         .then(data=>{
             setInstructor(data);

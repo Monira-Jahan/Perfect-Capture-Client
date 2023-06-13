@@ -14,6 +14,7 @@ const SignUp = () => {
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || "/";
+
     
     const onSubmit = data => {
         console.log(data);
@@ -112,7 +113,7 @@ const SignUp = () => {
                                 <label className="label">
                                     <span className="label-text">User Role</span>
                                 </label>
-                                <input type="text" {...register("role", { required: true })} name="role"  className="input input-bordered" />
+                                <input type="text" {...register("role", { required: true })} name="role"  value="Student" className="input input-bordered" />
                                 {errors.role && <span className="text-red-600">User Role is required</span>}
                             </div>
                             <div className="form-control">
@@ -122,7 +123,7 @@ const SignUp = () => {
                                 <input type="password" {...register("password", {
                                     required: true,
                                     minLength: 6,
-                                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
+                                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/
                                 })} name="password" placeholder="password" className="input input-bordered" />
                                 {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
                                 {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
@@ -138,7 +139,7 @@ const SignUp = () => {
                                 <input type="password" {...register("password", {
                                     required: true,
                                     minLength: 6,
-                                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])(?=.*[0-9])(?=.*[a-z])/
+                                    pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/
                                 })} name="password" placeholder="password" className="input input-bordered" />
                                 {errors.password?.type === 'required' && <p className="text-red-600">Password is required</p>}
                                 {errors.password?.type === 'minLength' && <p className="text-red-600">Password must be 6 characters</p>}
