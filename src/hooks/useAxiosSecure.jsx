@@ -8,8 +8,8 @@ const axiosSecure = axios.create({
 });
 
 const useAxiosSecure = () => {
-  const { logOut } = useContext(AuthContext) ;
-  const navigate = useNavigate(); 
+ const { logOut } = useContext(AuthContext) ;
+ const navigate = useNavigate(); 
 
   useEffect(() => {
     axiosSecure.interceptors.request.use((config) => {
@@ -30,7 +30,7 @@ const useAxiosSecure = () => {
         return Promise.reject(error);
       }
     );
-  }, [logOut, navigate]);
+  }, [logOut,navigate]);
 
   return [axiosSecure];
 };

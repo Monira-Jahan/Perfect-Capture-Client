@@ -33,7 +33,7 @@ const Dashboard = () => {
                         </> : isInstructor ?
                             <>
                                 <li className="font-bold text-lg pt-4"><NavLink> <FaHome /> Instructor Home</NavLink></li>
-                                <li className="font-semibold text-lg pt-8"><NavLink to="/dashboard/history"> <FaWallet /> Add a Class</NavLink></li>
+                                <li className="font-semibold text-lg pt-8"><NavLink to="/dashboard/addclass"> <FaWallet /> Add a Class</NavLink></li>
                                 <li className="font-semibold text-lg"><NavLink to="/dashboard/mycart"> <FaShoppingBasket /> My Classes</NavLink></li>
                                 <li className="font-semibold text-lg"><NavLink to="/dashboard/mycart"> <FaShoppingBasket /> Total Enrolled Classes</NavLink></li>
 

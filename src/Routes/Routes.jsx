@@ -8,6 +8,10 @@ import Dashboard from "../Layout/Dashboard";
 import PrivateRoute from "./PrivateRoute";
 import AllUsers from "../Pages/Dashboard/AllUser/AllUsers";
 
+
+import AdminRoute from "./AdminRoute";
+import AddClass from "../Pages/Dashboard/AddClass/AddClass";
+
   export const router = createBrowserRouter([
     {
       path: "/",
@@ -37,11 +41,12 @@ import AllUsers from "../Pages/Dashboard/AllUser/AllUsers";
       children:[
         {
           path:'manageusers',
-          element:<AllUsers></AllUsers>
+          element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
 
         },
         {
-          
+          path:'addclass',
+          element:<AddClass></AddClass>
         }
       ]
     }
