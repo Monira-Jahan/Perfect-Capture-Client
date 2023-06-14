@@ -43,7 +43,7 @@ const Login = () => {
                 const loggedInUser = result.user;
                 console.log(loggedInUser);
                 const saveUser = { name: loggedInUser.displayName, email: loggedInUser.email, photo: loggedInUser.photo }
-                fetch('http://localhost:5000/users', {
+                fetch('https://photography-school-server-monira-jahan.vercel.app/users', {
                     method: 'POST',
                     headers: {
                         'content-type': 'application/json'

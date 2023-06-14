@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 const InstructorsSection = () => {
     const[Instructor,setInstructor]=useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/instructors')
+        fetch('https://photography-school-server-monira-jahan.vercel.app/instructors')
         .then(res=>res.json())
         .then(data=>{
             const AllInstructors=data.filter(instructor=>instructor.role==='Instructor');
