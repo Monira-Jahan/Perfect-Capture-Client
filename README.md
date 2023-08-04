@@ -1,6 +1,6 @@
 ﻿#Perfect Capture Client
 
-![Untitled-3](https://github.com/Monira-Jahan/Perfect-Capture-Client/assets/106574536/6542608c-4b14-45d8-a3e0-45ffd37e1d5e)
+![Untitled-3](https://github.com/Monira-Jahan/perfect-capture-client/assets/106574536/204e4a57-0cca-4164-9c78-dc3ab91fbef1)
 
 My Website name is "Perfect Capture" is summer camp school which provide photography course. It has some features which are given below -
 
