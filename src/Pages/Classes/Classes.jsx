@@ -14,7 +14,7 @@ const Classes = () => {
                     <div className="max-w-md text-white ">
                         <Slide>
                             <h1 className="mb-5 mt-16 text-3xl font-bold uppercase">Here Is Our Courses</h1>
-                            <p className="mb-5">It’s important to know that the people behind your training know their stuff, so meet your Perfect Capture tutors and course instructors.This unique blend of experience, skill, and technical know-how, combined with a wide mix of engaging personalities, is precisely why our students get such incredible results so quickly!</p>
+                            <p className="mb-5">Each course has been carefully crafted by a team of professional photographers to help beginners and amateurs gain higher-level photography skills and develop unshakable camera confidence, quickly.</p>
                         </Slide>
                     </div>
                 </div>

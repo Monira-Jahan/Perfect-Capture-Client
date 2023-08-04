@@ -3,6 +3,7 @@ import Banner from "../Banner/Banner";
 import PopularInstructor from "../PopularInstructor/PopularInstructor";
 import Reviews from "../Reviews/Reviews";
 import QnASection from "../QnA/QnASection";
+import PopularClass from "./PopularClass/PopularClass";
 
 
 
@@ -15,6 +16,7 @@ const Home = () => {
             </Helmet>
             <Banner></Banner>
             <PopularInstructor></PopularInstructor>
+            <PopularClass></PopularClass>
            <Reviews></Reviews>
            <QnASection></QnASection>
         </div>

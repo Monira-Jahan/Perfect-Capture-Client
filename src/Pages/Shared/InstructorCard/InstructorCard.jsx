@@ -17,7 +17,7 @@ const InstructorCard = ({ instructor }) => {
                     <p><strong>Email:</strong> {email}</p>
 
                     <div className="card-actions justify-center">
-                        <Link className="btn btn-primary">See Classes</Link>
+                        <Link className="btn bg-blue-600 text-white px-6">See Classes</Link>
                     </div>
                 </div>
             </div>
